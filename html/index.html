@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Steel - Premium Stainless Steel Furniture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            background: rgba(15, 15, 35, 0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #c9aa7c, #f4e4bc, #c9aa7c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #c9aa7c, #f4e4bc);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+            animation: zoomOut 2s ease-out;
+        }
+        
+        @keyframes zoomOut {
+            0% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #c9aa7c, #f4e4bc, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: #e0e0e0;
+            font-weight: 300;
+        }
+        
+        .cta-button {
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #c9aa7c, #f4e4bc);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f0f23;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(201, 170, 124, 0.3);
+        }
+        
+        /* Animated Background */
+        .bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: linear-gradient(45deg, rgba(201, 170, 124, 0.1), rgba(244, 228, 188, 0.1));
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translateY(-20px) scale(1.1);
+                opacity: 0.8;
+            }
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 100px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            background: linear-gradient(45deg, #c9aa7c, #f4e4bc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 300;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(201, 170, 124, 0.2);
+            transition: all 0.5s ease;
+            transform: perspective(1000px) rotateX(0deg);
+        }
+        
+        .product-card:hover {
+            transform: perspective(1000px) rotateX(5deg) translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 30px 60px rgba(201, 170, 124, 0.2);
+        }
+        
+        .product-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #c9aa7c, #f4e4bc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(201, 170, 124, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 30px rgba(201, 170, 124, 0.5);
+            }
+        }
+        
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #f4e4bc;
+        }
+        
+        .product-card p {
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        /* About Section */
+        .about {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 100px 50px;
+            text-align: center;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #c9aa7c, #f4e4bc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+        
+        /* Features */
+        .features {
+            padding: 100px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #c9aa7c, #f4e4bc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, rgba(201, 170, 124, 0.1) 0%, rgba(244, 228, 188, 0.05) 100%);
+            padding: 100px 50px;
+            text-align: center;
+        }
+        
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #c9aa7c, #f4e4bc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            min-width: 150px;
+        }
+        
+        /* Scroll Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 0 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .products, .about, .features, .contact {
+                padding: 60px 20px;
+            }
+        }
+        
+        /* Premium Steel Texture Effect */
+        .steel-texture {
+            position: relative;
+            background: linear-gradient(45deg, #e8e8e8 25%, transparent 25%), 
+                        linear-gradient(-45deg, #e8e8e8 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #e8e8e8 75%), 
+                        linear-gradient(-45deg, transparent 75%, #e8e8e8 75%);
+            background-size: 2px 2px;
+            background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+            opacity: 0.1;
+        }
+        
+        /* Hover Zoom Effect */
+        .zoom-container {
+            overflow: hidden;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .zoom-content {
+            transition: transform 0.5s ease;
+        }
+        
+        .zoom-container:hover .zoom-content {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-content">
+            <div class="logo">Prime Steel</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="bg-animation">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        <div class="hero-content">
+            <h1>PRIME STEEL</h1>
+            <p>Crafting Excellence in Stainless Steel Furniture</p>
+            <a href="#products" class="cta-button">Explore Collection</a>
+        </div>
+        <div class="steel-texture"></div>
+    </section>
+    
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2 class="section-title scroll-reveal">Our Premium Collection</h2>
+        <div class="product-grid">
+            <div class="product-card scroll-reveal zoom-container">
+                <div class="zoom-content">
+                    <img src="C:\Users\sahil\Desktop\html\Gemini_Generated_Image_a8splma8splma8sp.png" alt="Prime Steel Luxury Bed" style="width: 100%; height: 200px; object-fit: cover;">
+                    <h3>Luxury Beds</h3>
+                    <p>Experience unmatched comfort with our precision-engineered stainless steel bed frames. Combining durability with sophisticated design for the perfect night's sleep.</p>
+                </div>
+            </div>
+            
+            <div class="product-card scroll-reveal zoom-container">
+                <div class="zoom-content">
+                    <img src="C:\Users\sahil\Desktop\html\Gemini_Generated_Image_17l7y217l7y217l7.png" alt="Prime Steel Luxury Bed" style="width: 100%; height: 200px; object-fit: cover;">
+                    <h3>Designer Chairs</h3>
+                    <p>Elevate your space with our contemporary chair collection. Each piece showcases the perfect balance of ergonomic comfort and striking visual appeal.</p>
+                </div>
+            </div>
+            
+            <div class="product-card scroll-reveal zoom-container">
+                <div class="zoom-content">
+                    <img src="C:\Users\sahil\Desktop\html\Gemini_Generated_Image_zhlm8zzhlm8zzhlm.png" alt="Prime Steel Luxury Bed" style="width: 100%; height: 200px; object-fit: cover;">
+                    <h3>Premium Sofas</h3>
+                    <p>Transform your living space with our luxurious sofa range. Meticulously crafted stainless steel frames support premium upholstery for ultimate relaxation.</p>
+                </div>
+            </div>
+            
+            <div class="product-card scroll-reveal zoom-container">
+                <div class="zoom-content">
+                    <img src="C:\Users\sahil\Desktop\html\Zenn-Contemporary-Stainless-Steel-And-Clear-Glass-Dining-Table-5.jpg" alt="Prime Steel Luxury Bed" style="width: 100%; height: 200px; object-fit: cover;">
+                    <h3>Dining Sets</h3>
+                    <p>Create memorable dining experiences with our elegant dining furniture. Sophisticated designs that bring families together in style and comfort.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content scroll-reveal">
+            <h2>Craftsmanship Redefined</h2>
+            <p>At Prime Steel, we believe that furniture should be more than functional—it should be a statement of excellence. Our master craftsmen combine traditional techniques with cutting-edge technology to create stainless steel furniture that stands the test of time. Every piece is meticulously designed to offer unparalleled durability, timeless elegance, and superior comfort.</p>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title scroll-reveal">Why Choose Prime Steel</h2>
+        <div class="features-grid">
+            <div class="feature-item scroll-reveal">
+                <div class="feature-icon">✨</div>
+                <h3>Premium Quality</h3>
+                <p>Grade 304 stainless steel construction ensuring lasting beauty and performance.</p>
+            </div>
+            
+            <div class="feature-item scroll-reveal">
+                <div class="feature-icon">🎨</div>
+                <h3>Custom Design</h3>
+                <p>Bespoke solutions tailored to your unique style and space requirements.</p>
+            </div>
+            
+            <div class="feature-item scroll-reveal">
+                <div class="feature-icon">🛡️</div>
+                <h3>Lifetime Durability</h3>
+                <p>Corrosion-resistant materials built to withstand the test of time.</p>
+            </div>
+            
+            <div class="feature-item scroll-reveal">
+                <div class="feature-icon">🚀</div>
+                <h3>Modern Innovation</h3>
+                <p>Contemporary designs that push the boundaries of furniture artistry.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content scroll-reveal">
+            <h2>Get In Touch</h2>
+            <p>Ready to transform your space with premium stainless steel furniture? Our design consultants are here to help bring your vision to life.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>📞 Call Us</h4>
+                    <p>+91 62912 53082</p>
+                </div>
+                <div class="contact-item">
+                    <h4>✉️ Email</h4>
+                    <p>primesteelbusiness@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4>📍 Showroom</h4>
+                    <p>Bonhooghly-2,Kolkata-700103, West Bengal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(15, 15, 35, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(15, 15, 35, 0.9)';
+            }
+        });
+        
+        // Additional zoom out effect on page load
+        window.addEventListener('load', () => {
+            document.body.style.animation = 'zoomOut 1.5s ease-out';
+        });
+        
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            document.querySelectorAll('.floating-element').forEach((element, index) => {
+                const speed = (index + 1) * 0.3;
+                element.style.transform = `translateY(${rate * speed}px) rotate(${scrolled * 0.1}deg)`;
+            });
+        });
+        
+        // Dynamic cursor effect
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.createElement('div');
+            cursor.style.position = 'fixed';
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.width = '4px';
+            cursor.style.height = '4px';
+            cursor.style.background = 'linear-gradient(45deg, #c9aa7c, #f4e4bc)';
+            cursor.style.borderRadius = '50%';
+            cursor.style.pointerEvents = 'none';
+            cursor.style.zIndex = '9999';
+            cursor.style.animation = 'fadeOut 0.8s ease-out forwards';
+            
+            document.body.appendChild(cursor);
+            
+            setTimeout(() => {
+                cursor.remove();
+            }, 800);
+        });
+        
+        const fadeOutKeyframes = `
+            @keyframes fadeOut {
+                0% { opacity: 1; transform: scale(1); }
+                100% { opacity: 0; transform: scale(0); }
+            }
+        `;
+        
+        const style = document.createElement('style');
+        style.textContent = fadeOutKeyframes;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
